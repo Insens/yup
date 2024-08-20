@@ -98,7 +98,9 @@
     "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "synchronous-promise": "^2.0.17",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "luxon": "2.5.2",
+    "@types/luxon": "2.4.0"
   },
   "dependencies": {
     "property-expr": "^2.0.5",
