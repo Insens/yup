@@ -3,6 +3,8 @@
 
 import isSchema from './isSchema';
 
+import { DateTime } from 'luxon';
+
 function clone(src: unknown, seen: Map<any, any> = new Map()) {
   if (isSchema(src) || !src || typeof src !== 'object') return src;
   if (seen.has(src)) return seen.get(src);
@@ -31,6 +33,9 @@ function clone(src: unknown, seen: Map<any, any> = new Map()) {
     copy = new Set();
     seen.set(src, copy);
     for (const v of src) copy.add(clone(v, seen));
+  } else if (src instanceof DateTime) {
+    copy = src.plus(0)
+    seen.set(src, copy)
   } else if (src instanceof Object) {
     // Object
     copy = {};
